@@ -78,7 +78,8 @@ public class SpringAMQPHeader {
         msg.getHeaders().put(EXPIRATION, amqpMessage.getMessageProperties().getExpiration());
         msg.getHeaders().put(PRIORITY, amqpMessage.getMessageProperties().getPriority());
         msg.getHeaders().put(REPLY_TO, amqpMessage.getMessageProperties().getReplyTo());
-        msg.getHeaders().put(DELIVERY_MODE, MessageDeliveryMode.toInt(amqpMessage.getMessageProperties().getDeliveryMode()));
+        MessageDeliveryMode deliveryMode = amqpMessage.getMessageProperties().getReceivedDeliveryMode();
+        msg.getHeaders().put(DELIVERY_MODE, deliveryMode == null ? null : MessageDeliveryMode.toInt(deliveryMode));
         msg.getHeaders().put(TYPE, amqpMessage.getMessageProperties().getType());
 
         return msg;
