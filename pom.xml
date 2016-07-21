@@ -80,10 +80,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <org.apache.camel.version>2.17.2</org.apache.camel.version>
         <org.springframework.amqp.version>1.6.0.RELEASE</org.springframework.amqp.version>
-        <org.springframework.retry.version>1.1.3.RELEASE</org.springframework.retry.version>
         <!-- Keep this in line with the versions referenced by Camel and Spring-AMQP versions in use (4.2.5 and 4.2.6) -->
         <org.springframework.version>4.2.6.RELEASE</org.springframework.version>
-        <ch.qos.logback.version>1.1.7</ch.qos.logback.version>
     </properties>
 
     <dependencies>
@@ -98,12 +96,6 @@
             <artifactId>jettison</artifactId>
             <version>1.3.7</version>
         </dependency>
-        <dependency>
-            <groupId>org.codehaus.jackson</groupId>
-            <artifactId>jackson-mapper-asl</artifactId>
-            <version>1.9.13</version>
-            <scope>compile</scope>
-        </dependency>
 
         <!-- Apache Camel -->
         <dependency>
@@ -117,7 +109,7 @@
         <dependency>
             <groupId>org.springframework.retry</groupId>
             <artifactId>spring-retry</artifactId>
-            <version>${org.springframework.retry.version}</version>
+            <version>1.1.3.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.amqp</groupId>
@@ -136,28 +128,22 @@
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
-            <artifactId>spring-beans</artifactId>
-            <version>${org.springframework.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
             <version>${org.springframework.version}</version>
         </dependency>
 
         <!-- Logging -->
         <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-core</artifactId>
-            <version>${ch.qos.logback.version}</version>
-            <scope>test</scope>
-        </dependency>    
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.21</version>
+        </dependency>
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
-            <version>${ch.qos.logback.version}</version>
+            <version>1.1.7</version>
             <scope>test</scope>
-        </dependency>    
+        </dependency>
     
         <!-- Testing -->
         <dependency>
@@ -171,21 +157,11 @@
             <artifactId>camel-spring</artifactId>
             <version>${org.apache.camel.version}</version>
             <scope>test</scope>
-            <exclusions>
-                <exclusion>
-                    <artifactId>spring-tx</artifactId>
-                    <groupId>org.springframework</groupId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>spring-context</artifactId>
-                    <groupId>org.springframework</groupId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
-            <groupId>org.apache.camel</groupId>
-            <artifactId>camel-xstream</artifactId>
-            <version>${org.apache.camel.version}</version>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.8.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>

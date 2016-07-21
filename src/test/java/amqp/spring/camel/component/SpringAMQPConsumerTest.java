@@ -15,7 +15,7 @@ import org.junit.Test;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
-import org.springframework.amqp.support.converter.JsonMessageConverter;
+import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 
 
 public class SpringAMQPConsumerTest extends CamelTestSupport {
@@ -192,7 +192,7 @@ public class SpringAMQPConsumerTest extends CamelTestSupport {
         ConnectionFactory factory = new TestConnectionFactory();
         RabbitTemplate amqpTemplate = new RabbitTemplate(factory);
         //The JSON converter stresses marshalling more than the default converter
-        amqpTemplate.setMessageConverter(new JsonMessageConverter());
+        amqpTemplate.setMessageConverter(new Jackson2JsonMessageConverter());
         SpringAMQPComponent amqpComponent = new SpringAMQPComponent(factory);
         
         Map<String, AmqpTemplate> templateMap = new HashMap<>(1);
