@@ -216,7 +216,7 @@ public class SpringAMQPConsumerTest extends CamelTestSupport {
                 from("spring-amqp:headerAndExchange:q3:cheese=gouda&fromage=jack?type=headers&durable=false&autodelete=true&exclusive=false").to("mock:test.c");
                 from("spring-amqp:headerOrExchange:q4:cheese=white|fromage=bleu?type=headers&durable=false&autodelete=true&exclusive=false").to("mock:test.d");
                 from("spring-amqp::test.e:test.e?durable=false&autodelete=true&exclusive=false").to("mock:test.e");
-                from("spring-amqp::test.f:test.f?durable=false&autodelete=true&exclusive=false").beanRef("exceptionThrower", "explode");
+                from("spring-amqp::test.f:test.f?durable=false&autodelete=true&exclusive=false").bean("exceptionThrower", "explode");
             }
         };
     }
