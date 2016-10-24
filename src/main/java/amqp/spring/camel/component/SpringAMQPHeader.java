@@ -39,6 +39,8 @@ public class SpringAMQPHeader {
                         msg.getMessageProperties().setMessageId(headerValueString);
                         break;
                     case CORRELATION_ID:
+                        byte[] correlationId = headerValueString != null ? headerValueString.getBytes() : null;
+                        msg.getMessageProperties().setCorrelationId(correlationId);
                         msg.getMessageProperties().setCorrelationIdString(headerValueString);
                         break;
                     case APP_ID:
@@ -67,9 +69,20 @@ public class SpringAMQPHeader {
         return msg;
     }
     
+    /**
+     * Fills Camel message headers with AMQP message properties
+     * 
+     * @param msg Camel message
+     * @param amqpMessage AMQP message
+     * @return The Camel message with headers set
+     */
     public static SpringAMQPMessage setBasicPropertiesToHeaders(SpringAMQPMessage msg, Message amqpMessage) {
         msg.getHeaders().put(MESSAGE_ID, amqpMessage.getMessageProperties().getMessageId());
         msg.getHeaders().put(CORRELATION_ID, amqpMessage.getMessageProperties().getCorrelationIdString());
+        if ( msg.getHeader(CORRELATION_ID, String.class)==null ) {
+            byte[] correlationId = amqpMessage.getMessageProperties().getCorrelationId();
+            msg.getHeaders().put(CORRELATION_ID, correlationId == null ? null : new String(correlationId));
+        }
         msg.getHeaders().put(APP_ID, amqpMessage.getMessageProperties().getAppId());
         msg.getHeaders().put(CONTENT_ENCODING, amqpMessage.getMessageProperties().getContentEncoding());
         msg.getHeaders().put(CONTENT_TYPE, amqpMessage.getMessageProperties().getContentType());
