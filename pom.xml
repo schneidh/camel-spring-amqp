@@ -79,7 +79,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!-- Need to stay with Camel 2.17 because version 2.18 requires Java 8 -->
-        <org.apache.camel.version>2.17.5</org.apache.camel.version>
+        <org.apache.camel.version>2.17.6</org.apache.camel.version>
         <org.springframework.amqp.version>1.7.1.RELEASE</org.springframework.amqp.version>
         <!-- Keep this in line with the versions referenced by Camel and Spring-AMQP versions in use (4.2.5 and 4.3.7) -->
         <org.springframework.version>4.3.7.RELEASE</org.springframework.version>
@@ -137,12 +137,12 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>1.7.24</version>
+            <version>1.7.25</version>
         </dependency>
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
-            <version>1.2.1</version>
+            <version>1.2.3</version>
             <scope>test</scope>
         </dependency>
     
