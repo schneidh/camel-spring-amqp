@@ -79,7 +79,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!-- Need to stay with Camel 2.17 because version 2.18 requires Java 8 -->
-        <org.apache.camel.version>2.17.6</org.apache.camel.version>
+        <org.apache.camel.version>2.17.7</org.apache.camel.version>
         <org.springframework.amqp.version>1.7.2.RELEASE</org.springframework.amqp.version>
         <!-- Keep this in line with the versions referenced by Camel and Spring-AMQP versions in use (4.2.5 and 4.3.7) -->
         <org.springframework.version>4.3.7.RELEASE</org.springframework.version>
