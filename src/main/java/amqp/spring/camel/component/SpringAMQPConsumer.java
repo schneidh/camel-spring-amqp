@@ -193,7 +193,8 @@ public class SpringAMQPConsumer extends DefaultConsumer implements ConnectionLis
             LOG.debug("Received message for routing key {}", amqpMessage.getMessageProperties().getReceivedRoutingKey());
             ExchangePattern exchangePattern = SpringAMQPMessage.getExchangePattern(amqpMessage);
             Exchange exchange = new DefaultExchange(endpoint, exchangePattern);
-            SpringAMQPMessage camelMessage = SpringAMQPMessage.fromAMQPMessage(msgConverter, amqpMessage);
+            SpringAMQPMessage camelMessage = SpringAMQPMessage.fromAMQPMessage(msgConverter, amqpMessage,
+                    endpoint.getCamelContext());
             exchange.setIn(camelMessage);
             
             try {
