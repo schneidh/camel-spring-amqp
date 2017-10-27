@@ -12,14 +12,14 @@
         <version>9</version>
     </parent>
     
-    <groupId>cz.drasil</groupId>
+    <groupId>com.github.schneidh</groupId>
     <artifactId>camel-spring-amqp</artifactId>
     <version>1.6.17</version>
     <packaging>jar</packaging>
 
     <name>Camel :: Spring-AMQP</name>
     <description>Camel Spring-AMQP support</description>
-    <url>https://github.com/drasil/camel-spring-amqp</url>
+    <url>https://github.com/schneidh/camel-spring-amqp</url>
 
     <licenses>
         <license>
@@ -73,6 +73,11 @@
             <id>drasil</id>
             <name>Pavel Drasil</name>
             <email>pavel.drasil@gmail.com</email>
+        </developer>
+        <developer>
+            <id>schneidh</id>
+            <name>Tom Schneidh</name>
+            <email>schneidh@gmail.com</email>
         </developer>
     </developers>
 

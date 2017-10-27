@@ -11,3 +11,7 @@ Thumbs.db
 .idea
 nbactions.xml
 nb-configuration.xml
+/bin/
+.settings
+.project
+.classpath
