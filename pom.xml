@@ -12,9 +12,9 @@
         <version>9</version>
     </parent>
     
-    <groupId>cz.drasil</groupId>
+    <groupId>com.github.schneidh</groupId>
     <artifactId>camel-spring-amqp</artifactId>
-    <version>1.6.17</version>
+    <version>1.6.17-1</version>
     <packaging>jar</packaging>
 
     <name>Camel :: Spring-AMQP</name>
